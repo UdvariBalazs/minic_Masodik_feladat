@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('/companies', 'CompaniesController@companies');
+
+Route::get('/employees', 'EmployeesController@employees');
+
+
+
