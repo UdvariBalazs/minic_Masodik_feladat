@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>@yield('title', 'Admin panel')</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -26,7 +26,8 @@
 
             .flex-center {
                 display: flex;
-                justify-content: center;
+                flex-direction: column;
+                margin: 0px 50px 0px 50px;
             }
 
             .position-ref {
@@ -67,12 +68,33 @@
                 padding-top: 40px;
                 padding-bottom: 40px;
             }
+
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #dddddd;  
+            }
+
+            .table {
+                display: inline-block;
+            }
         </style>
     </head>
     <body>
         <header>
             <div class="nav-bar">
                 <div class="links">
+                    <a href="/">Home</a>
                     <a href="/companies">Companies</a>
                     <a href="/employees">Employees</a>
                 </div>
