@@ -1,12 +1,13 @@
 @extends('layout')
 
-@section('title', 'employees')
+@section('title', 'Create employee')
 
 @section('content')
     <h1>Create employee</h1>
 
     <div class="form">
         <form method="POST" action="/employees">
+            {{ method_field('PATCH') }}
             {{ csrf_field() }}
 
             <div>

@@ -35,4 +35,30 @@ class CompaniesController extends Controller
 
         return redirect('/companies');
     }
+    
+    public function edit($id)
+    {
+        $company = Company::find($id);
+
+        return view('companies.edit', compact('company'));
+    }
+
+    public function update()
+    {
+        $company = Company::find($id);
+
+        $company->name = request('name');
+        $company->email = request('email');
+        $company->website = request('website');
+        $company->logo = request('logo');
+
+        $company->save();
+
+        return redirect('/companies');
+    }
+
+    public function destroy()
+    {
+        
+    } 
 }

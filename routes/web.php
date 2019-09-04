@@ -16,12 +16,18 @@ Route::get('/', function () {
 });
 
 Route::get('/companies', 'CompaniesController@table');
-Route::post('/companies', 'CompaniesController@store');
 Route::get('/companies/create', 'CompaniesController@create');
+Route::post('/companies', 'CompaniesController@store');
+Route::get('/companies/{company}/edit', 'CompaniesController@edit');
+Route::patch('/companies/{company}', 'CompaniesController@update');
+Route::delete('/companies/{company}', 'CompaniesController@destroy');
 
 Route::get('/employees', 'EmployeesController@table');
-Route::post('/employees', 'EmployeesController@store');
 Route::get('/employees/create', 'EmployeesController@create');
+Route::post('/employees', 'EmployeesController@store');
+Route::get('/employees/{employee}/edit', 'EmployeesController@edit');
+Route::patch('/employees/{employee}', 'EmployeesController@update');
+Route::delete('/employees/{employee}', 'EmployeesController@destroy');
 
 
 
