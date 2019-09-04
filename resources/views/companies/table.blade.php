@@ -19,10 +19,17 @@
                 <td>{{ $company->id }}</td>
                 <td>{{ $company->name }}</td>
                 <td>{{ $company->email }}</td>
-                <td><img src="data:image/png;base64,{{ chunk_split(base64_encode( $company->logo )) }}" height="100" width="100"></td>
+                <td>
+                @if ($company->logo != null)
+                    <img src="data:image/png;base64,{{ chunk_split(base64_encode( $company->logo )) }}" height="100" width="100">
+                @endif
+                </td>
                 <td>{{ $company->website }}</td>
             </tr>
         @endforeach
         </table>
+    </div>
+    <div class="buttons">
+        <a href="/companies/create"><button>Create</button></a>
     </div>
 @endsection

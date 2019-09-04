@@ -16,6 +16,6 @@ class EmployeesController extends Controller
         
         $companies = Company::all();
 
-        return view('employees.employees', compact('employees', 'companies'));
+        return view('employees.table', compact('employees', 'companies'));
     }
 }

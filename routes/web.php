@@ -15,7 +15,9 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/companies', 'CompaniesController@companies');
+Route::get('/companies', 'CompaniesController@table');
+Route::post('/companies', 'CompaniesController@store');
+Route::get('/companies/create', 'CompaniesController@create');
 
 Route::get('/employees', 'EmployeesController@employees');
 

@@ -16,12 +16,7 @@
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
-                height: 100vh;
                 margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
             }
 
             .flex-center {
@@ -62,6 +57,10 @@
                 margin-bottom: 30px;
             }
 
+            h1 {
+                text-align: center;
+            }
+
             .nav-bar {
                 display: flex;
                 justify-content: center;
@@ -88,6 +87,48 @@
             .table {
                 display: inline-block;
             }
+
+            .buttons {
+                display: flex;
+                justify-content: center;
+                padding-top: 20px;
+            }
+
+            button {
+                font-family: 'Nunito', sans-serif;
+                font-size: 16pt;
+                color: #636b6f;
+                font-weight: bold;
+                border: 2px solid #636b6f;
+                border-radius: 4px;
+            }
+
+            .form {
+                display: flex;
+                justify-content: center;
+            }
+
+            input {
+                width: 300px;
+                font-family: 'Nunito', sans-serif;
+                font-size: 14pt;
+                color: #636b6f;
+                font-weight: bold;
+                border: 2px solid #636b6f;
+                border-radius: 4px;
+                margin: 4px;
+                padding: 6px;
+            }
+
+            label {
+                width: 300px;
+                font-family: 'Nunito', sans-serif;
+                font-size: 14pt;
+                color: #636b6f;
+                font-weight: bold;
+                margin: 4px;
+                padding: 6px;
+            }
         </style>
     </head>
     <body>
@@ -100,7 +141,7 @@
                 </div>
             </div>
         </header>
-        <div class="flex-center position-ref full-height">
+        <div class="flex-center position-ref">
             @yield('content')
         </div>
     </body>
