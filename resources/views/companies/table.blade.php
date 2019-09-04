@@ -13,6 +13,7 @@
                 <th>Email</th>
                 <th>Logo</th>
                 <th>Website</th>
+                <th></th>
             </tr>
         @foreach ($companies as $company)
             <tr>
@@ -25,6 +26,11 @@
                 @endif
                 </td>
                 <td>{{ $company->website }}</td>
+                <td>
+                <div class="buttons">
+                        <a href="/companies/{{ $company->id }}/edit"><button>Update</button></a>
+                    </div>
+                </td>
             </tr>
         @endforeach
         </table>

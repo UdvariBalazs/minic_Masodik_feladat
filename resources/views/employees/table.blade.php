@@ -14,6 +14,7 @@
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Company</th>
+                <th></th>
             </tr>
         @foreach ($employees as $employee)
             @foreach ($companies as $company)
@@ -25,6 +26,11 @@
                         <td>{{ $employee->email }}</td>
                         <td>{{ $employee->phone }}</td>
                         <td>{{ $company->name }}</td>
+                        <td>
+                            <div class="buttons">
+                                <a href="/employees/{{ $employee->id }}/edit"><button>Update</button></a>
+                            </div>
+                        </td>
                     </tr>
                 @endif
             @endforeach
