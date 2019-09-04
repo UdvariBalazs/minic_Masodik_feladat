@@ -19,7 +19,9 @@ Route::get('/companies', 'CompaniesController@table');
 Route::post('/companies', 'CompaniesController@store');
 Route::get('/companies/create', 'CompaniesController@create');
 
-Route::get('/employees', 'EmployeesController@employees');
+Route::get('/employees', 'EmployeesController@table');
+Route::post('/employees', 'EmployeesController@store');
+Route::get('/employees/create', 'EmployeesController@create');
 
 
 

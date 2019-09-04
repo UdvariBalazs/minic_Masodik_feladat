@@ -108,7 +108,7 @@
                 justify-content: center;
             }
 
-            input {
+            input, select {
                 width: 300px;
                 font-family: 'Nunito', sans-serif;
                 font-size: 14pt;
@@ -118,6 +118,10 @@
                 border-radius: 4px;
                 margin: 4px;
                 padding: 6px;
+            }
+
+            select {
+                width: 318px;
             }
 
             label {
