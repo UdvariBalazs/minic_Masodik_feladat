@@ -7,7 +7,6 @@
 
     <div class="form">
         <form method="POST" action="/employees">
-            {{ method_field('PATCH') }}
             {{ csrf_field() }}
 
             <div>

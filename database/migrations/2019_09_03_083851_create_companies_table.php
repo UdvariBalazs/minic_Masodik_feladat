@@ -17,7 +17,7 @@ class CreateCompaniesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->nullable();
-            $table->binary('logo')->nullable();
+            $table->string('logo')->nullable();
             $table->string('website')->nullable();
             $table->timestamps();
         });

@@ -91,7 +91,18 @@
             .buttons {
                 display: flex;
                 justify-content: center;
-                padding-top: 20px;
+            }
+
+            .submit-button {
+                display: flex;
+                justify-content: center;
+                padding: 10px;
+            }
+
+            .create-button {
+                display: flex;
+                justify-content: center;
+                margin: 20px;
             }
 
             button {
@@ -101,6 +112,10 @@
                 font-weight: bold;
                 border: 2px solid #636b6f;
                 border-radius: 4px;
+            }
+
+            .delete-button {
+                margin-left: 20px;
             }
 
             .form {

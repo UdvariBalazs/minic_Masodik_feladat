@@ -37,7 +37,7 @@
         @endforeach
         </table>
     </div>
-    <div class="buttons">
+    <div class="create-button">
         <a href="/employees/create"><button>Create</button></a>
     </div>
 @endsection

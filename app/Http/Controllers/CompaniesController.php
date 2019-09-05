@@ -8,6 +8,12 @@ use App\Company;
 
 use Validator,Redirect,Response,File;
 
+use Illuminate\Support\Facades\Input;
+
+use Illuminate\Support\Facades\Storage;
+
+use Carbon\Carbon;
+
 class CompaniesController extends Controller
 {
     public function table()
@@ -29,7 +35,17 @@ class CompaniesController extends Controller
         $company->name = request('name');
         $company->email = request('email');
         $company->website = request('website');
-        $company->logo = request('logo');
+
+        if($request->hasFile('file')) {
+            $file = $request->file('file');
+            $company->logo = $file;
+
+            $timestamp = Carbon::now()->timestamp;
+            $logo_name = $timestamp . '_' . $company->logo->getClientOriginalName();
+            Storage::putFileAs('public/logos', $company->logo, $logo_name);
+
+            $company->logo = 'storage/app/public/logos/' . $logo_name;
+        }
         
         $company->save();
 
@@ -59,6 +75,8 @@ class CompaniesController extends Controller
 
     public function destroy()
     {
-        
+        Company::find($id)->delete();
+
+        return redirect('/companies');
     } 
 }

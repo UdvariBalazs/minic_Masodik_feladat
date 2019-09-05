@@ -65,6 +65,8 @@ class EmployeesController extends Controller
 
     public function destroy()
     {
-        
+        Employee::find($id)->delete();
+
+        return redirect('/employees');
     }
 }

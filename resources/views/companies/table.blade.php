@@ -22,7 +22,7 @@
                 <td>{{ $company->email }}</td>
                 <td>
                 @if ($company->logo != null)
-                    <img src="data:image/png;base64,{{ chunk_split(base64_encode( $company->logo )) }}" height="100" width="100">
+                    <img src="../../../{{ $company->logo }}" height="100" width="100">
                 @endif
                 </td>
                 <td>{{ $company->website }}</td>
@@ -35,7 +35,7 @@
         @endforeach
         </table>
     </div>
-    <div class="buttons">
+    <div class="create-button">
         <a href="/companies/create"><button>Create</button></a>
     </div>
 @endsection

@@ -23,8 +23,18 @@
             <div>
                 <input type="text" name="phone" value={{ $company->website }}>
             </div>
-            <div class="buttons">
+            <div class="submit-button">
                 <button type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+    <div class="form">
+        <form method="POST" action="/companies/"{{ $company->id }}>
+            @method('DELETE')
+            @csrf
+
+            <div class="submit-button">
+                <button type="submit">Delete</button>
             </div>
         </form>
     </div>

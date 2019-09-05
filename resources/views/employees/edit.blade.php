@@ -6,7 +6,7 @@
     <h1>Edit employee</h1>
 
     <div class="form">
-        <form method="POST" action="/employees/" {{ $employee->id }}>
+        <form method="POST" action="/employees/"{{ $employee->id }}>
             {{ method_field('PATCH') }}
             {{ csrf_field() }}
             
@@ -35,8 +35,18 @@
                 @endforeach
                 </select>
             </div>
-            <div class="buttons">
+            <div class="submit-button">
                 <button type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+    <div class="form">
+        <form method="POST" action="/employees/"{{ $employee->id }}>
+            @method('DELETE')
+            @csrf
+
+            <div class="submit-button">
+                <button type="submit">Delete</button>
             </div>
         </form>
     </div>
