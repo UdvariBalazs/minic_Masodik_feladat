@@ -11,21 +11,28 @@
             <input type="hidden" value="{{ csrf_token() }}" name="_token">
 
             <div>
-                <input type="text" name="name" placeholder="Name (required)" required>
+                <input type="text" class="input {{ $errors->has('name') ? 'is-danger' : '' }}" name="name" placeholder="Name (required)" value="{{ old('name') }}">
             </div>
             <div>
-                <input type="text" name="email" placeholder="Email (not required)">
+                <input type="text" name="email" placeholder="Email (not required)" value="{{ old('email') }}">
             </div>
             <div>
                 <label>Logo (not required):</label><br>
                 <input type="file" name="file" id="file">  
             </div>
             <div>
-                <input type="text" name="website" placeholder="Website (not required)">
+                <input type="text" name="website" placeholder="Website (not required)" value="{{ old('website') }}">
             </div>
             <div class="buttons">
                 <button type="submit" name="submit">Send</button>
             </div>
+
+            @if ($errors->any())
+            <div class="notification is-danger">
+                @foreach ($errors->all() as $error)
+                        {{ $error }} <br>
+                    @endforeach
+            @endif
         </form>
     </div>
 @endsection

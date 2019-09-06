@@ -16,11 +16,18 @@ use Carbon\Carbon;
 
 class CompaniesController extends Controller
 {
-    public function table()
+    public function index()
     {
         $companies = Company::all(); 
 
-        return view('companies.table', compact('companies'));
+        return view('companies.show', compact('companies'));
+    }
+
+    public function show()
+    {
+        $companies = Company::all(); 
+
+        return view('companies.show', compact('companies'));
     }
 
     public function create()
@@ -30,52 +37,60 @@ class CompaniesController extends Controller
 
     public function store(Request $request)
     {
-        $company = new Company();
-
-        $company->name = request('name');
-        $company->email = request('email');
-        $company->website = request('website');
+        request()->validate([
+            'name' => ['required', 'max:255'],
+            'email' => ['max:255'],
+            'website' => ['max:255']
+        ]);
 
         if($request->hasFile('file')) {
             $file = $request->file('file');
-            $company->logo = $file;
-
             $timestamp = Carbon::now()->timestamp;
-            $logo_name = $timestamp . '_' . $company->logo->getClientOriginalName();
-            Storage::putFileAs('public/logos', $company->logo, $logo_name);
+            $logo_name = $timestamp . '_' . $file->getClientOriginalName();
+            Storage::putFileAs('public/logos', $file, $logo_name);
 
-            $company->logo = 'storage/app/public/logos/' . $logo_name;
+            Company::create([
+                'name' => request('name'),
+                'email' => request('email'),
+                'website' => request('website'),
+                'logo' => 'storage/app/public/logos/' . $logo_name
+            ]);
+        } else {
+            Company::create(request(['name', ('email'), ('website')]));
         }
-        
-        $company->save();
 
         return redirect('/companies');
     }
     
-    public function edit($id)
+    public function edit(Company $company)
     {
-        $company = Company::find($id);
-
         return view('companies.edit', compact('company'));
     }
 
-    public function update()
+    public function update(Company $company)
     {
-        $company = Company::find($id);
+        if($request->hasFile('file')) {
+            $file = $request->file('file');
+            $timestamp = Carbon::now()->timestamp;
+            $logo_name = $timestamp . '_' . $file->getClientOriginalName();
+            Storage::putFileAs('public/logos', $file, $logo_name);
 
-        $company->name = request('name');
-        $company->email = request('email');
-        $company->website = request('website');
-        $company->logo = request('logo');
-
-        $company->save();
+            $company->update([
+                'name' => request('name'),
+                'email' => request('email'),
+                'website' => request('website'),
+                'logo' => 'storage/app/public/logos/' . $logo_name
+            ]);
+        } else {
+            $company->update(request(['name', ('email'), ('website')]));
+        }
 
         return redirect('/companies');
     }
 
-    public function destroy()
+    public function destroy(Company $company)
     {
-        Company::find($id)->delete();
+        $company->delete();
 
         return redirect('/companies');
     } 

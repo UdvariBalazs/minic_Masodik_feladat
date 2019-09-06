@@ -7,8 +7,8 @@
 
     <div class="form">
         <form method="POST" action="/companies/" {{ $company->id }}>
-            {{ method_field('PATCH') }}
-            {{ csrf_field() }}
+            @method('PATCH')
+            @csrf
             
             <div>
                <input type="text" name="name" value="{{ $company->name }}">

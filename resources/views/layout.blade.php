@@ -123,6 +123,13 @@
                 justify-content: center;
             }
 
+            form {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
             input, select {
                 width: 300px;
                 font-family: 'Nunito', sans-serif;
@@ -148,6 +155,23 @@
                 margin: 4px;
                 padding: 6px;
             }
+
+            .notification {
+                font-family: 'Nunito', sans-serif;
+                font-size: 14pt;
+                color: white;
+                background-color: red;
+                font-weight: bold;
+                border-radius: 4px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding: 10px;
+            }
+
+            .input.is-danger {
+                border-color: red;
+            }
+
         </style>
     </head>
     <body>

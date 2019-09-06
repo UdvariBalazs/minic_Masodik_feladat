@@ -10,12 +10,20 @@ use App\Company;
 
 class EmployeesController extends Controller
 {
-    public function table()
+    public function index()
     {
         $employees = Employee::all(); 
         $companies = Company::all();
 
-        return view('employees.table', compact('employees', 'companies'));
+        return view('employees.show', compact('employees', 'companies'));
+    }
+
+    public function show()
+    {
+        $employees = Employee::all(); 
+        $companies = Company::all();
+
+        return view('employees.show', compact('employees', 'companies'));
     }
 
     public function create()
@@ -27,45 +35,42 @@ class EmployeesController extends Controller
 
     public function store()
     {
-        $employee = new Employee();
+        request()->validate([
+            'first_name' => ['required', 'max:255'],
+            'last_name' => ['required', 'max:255'],
+            'email' => ['max:255'],
+            'phone'=> ['max:255']
+        ]);
 
-        $employee->first_name = request('first_name');
-        $employee->last_name = request('last_name');
-        $employee->email = request('email');
-        $employee->phone = request('phone');
-        $employee->company = request('company');
-
-        $employee->save();
+        Employee::create(request(['first_name', 'last_name', 'email', 'phone', 'company']));
 
         return redirect('/employees');
     }
 
-    public function edit($id)
+    public function edit(Employee $employee)
     {
         $companies = Company::all();
-        $employee = Employee::find($id);
 
         return view('employees.edit', compact('companies', 'employee'));
     }
 
-    public function update($id)
+    public function update(Employee $employee)
     {
-        $employee = Employee::find($id);
+        request()->validate([
+            'first_name' => ['required', 'max:255'],
+            'last_name' => ['required', 'max:255'],
+            'email' => ['max:255'],
+            'phone'=> ['max:255']
+        ]);
 
-        $employee->first_name = request('first_name');
-        $employee->last_name = request('last_name');
-        $employee->email = request('email');
-        $employee->phone = request('phone');
-        $employee->company = request('company');
-
-        $employee->save();
+        $employee->update(request(['first_name', 'last_name', 'email', 'phone', 'company']));
 
         return redirect('/employees');
     }
 
-    public function destroy()
+    public function destroy(Employee $employee)
     {
-        Employee::find($id)->delete();
+        $employee->delete();
 
         return redirect('/employees');
     }

@@ -15,19 +15,9 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/companies', 'CompaniesController@table');
-Route::get('/companies/create', 'CompaniesController@create');
-Route::post('/companies', 'CompaniesController@store');
-Route::get('/companies/{company}/edit', 'CompaniesController@edit');
-Route::patch('/companies/{company}', 'CompaniesController@update');
-Route::delete('/companies/{company}', 'CompaniesController@destroy');
+Route::resource('companies', 'CompaniesController');
 
-Route::get('/employees', 'EmployeesController@table');
-Route::get('/employees/create', 'EmployeesController@create');
-Route::post('/employees', 'EmployeesController@store');
-Route::get('/employees/{employee}/edit', 'EmployeesController@edit');
-Route::patch('/employees/{employee}', 'EmployeesController@update');
-Route::delete('/employees/{employee}', 'EmployeesController@destroy');
+Route::resource('employees', 'EmployeesController');
 
 
 

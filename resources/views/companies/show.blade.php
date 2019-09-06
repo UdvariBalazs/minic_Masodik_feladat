@@ -4,7 +4,7 @@
 
 @section('content')
     <h1>Companies</h1>
-
+    
     <div class="table">
         <table>
             <tr>
