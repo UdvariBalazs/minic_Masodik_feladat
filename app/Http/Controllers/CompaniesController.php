@@ -18,14 +18,14 @@ class CompaniesController extends Controller
 {
     public function index()
     {
-        $companies = Company::all(); 
+        $companies = Company::paginate(10); 
 
         return view('companies.show', compact('companies'));
     }
 
     public function show()
     {
-        $companies = Company::all(); 
+        $companies = Company::paginate(10); 
 
         return view('companies.show', compact('companies'));
     }

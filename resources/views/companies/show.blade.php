@@ -35,7 +35,8 @@
         @endforeach
         </table>
     </div>
-    <div class="create-button">
+    <div class="buttons">
         <a href="/companies/create"><button>Create</button></a>
+        {{ $companies->links() }}
     </div>
 @endsection

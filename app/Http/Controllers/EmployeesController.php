@@ -12,7 +12,7 @@ class EmployeesController extends Controller
 {
     public function index()
     {
-        $employees = Employee::all(); 
+        $employees = Employee::paginate(10); 
         $companies = Company::all();
 
         return view('employees.show', compact('employees', 'companies'));
@@ -20,7 +20,7 @@ class EmployeesController extends Controller
 
     public function show()
     {
-        $employees = Employee::all(); 
+        $employees = Employee::paginate(10); 
         $companies = Company::all();
 
         return view('employees.show', compact('employees', 'companies'));

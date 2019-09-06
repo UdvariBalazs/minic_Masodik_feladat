@@ -37,7 +37,10 @@
         @endforeach
         </table>
     </div>
-    <div class="create-button">
+    <div class="buttons">
         <a href="/employees/create"><button>Create</button></a>
+        {{ $employees->links() }}
     </div>
+
+    
 @endsection

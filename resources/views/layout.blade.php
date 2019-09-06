@@ -6,6 +6,9 @@
 
         <title>@yield('title', 'Admin panel')</title>
 
+        <!-- Bootstrap framework -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
@@ -59,6 +62,8 @@
 
             h1 {
                 text-align: center;
+                padding-top: 50px;
+                padding-bottom: 30px;
             }
 
             .nav-bar {
@@ -99,19 +104,20 @@
                 padding: 10px;
             }
 
-            .create-button {
-                display: flex;
-                justify-content: center;
-                margin: 20px;
-            }
-
             button {
                 font-family: 'Nunito', sans-serif;
-                font-size: 16pt;
+                font-size: 17pt;
                 color: #636b6f;
                 font-weight: bold;
                 border: 2px solid #636b6f;
                 border-radius: 4px;
+            }
+
+            .buttons {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                margin: 10px;
             }
 
             .delete-button {
