@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>@yield('title', 'Admin panel')</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Bootstrap framework -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
-        <!-- Styles -->
+    <!-- Bootstrap framework -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
@@ -46,14 +56,10 @@
                 font-size: 84px;
             }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
+            .nav-item {
+                padding: 10px;
+                font-size: 16px;
+                font-weight: bold;
             }
 
             .m-b-md {
@@ -62,21 +68,14 @@
 
             h1 {
                 text-align: center;
-                padding-top: 50px;
+                padding-top: 30px;
                 padding-bottom: 30px;
-            }
-
-            .nav-bar {
-                display: flex;
-                justify-content: center;
-                padding-top: 40px;
-                padding-bottom: 40px;
             }
 
             table {
                 font-family: arial, sans-serif;
                 border-collapse: collapse;
-                width: 100%;
+                width: 90%;
             }
 
             td, th {
@@ -90,7 +89,8 @@
             }
 
             .table {
-                display: inline-block;
+                display: flex;
+                justify-content: center;
             }
 
             .buttons {
@@ -177,21 +177,15 @@
             .input.is-danger {
                 border-color: red;
             }
-
         </style>
-    </head>
-    <body>
-        <header>
-            <div class="nav-bar">
-                <div class="links">
-                    <a href="/">Home</a>
-                    <a href="/companies">Companies</a>
-                    <a href="/employees">Employees</a>
-                </div>
-            </div>
-        </header>
-        <div class="flex-center position-ref">
+</head>
+<body>
+    @yield('navbar')
+
+    <div id="app">
+        <main class="py-4">
             @yield('content')
-        </div>
-    </body>
+        </main>
+    </div>
+</body>
 </html>

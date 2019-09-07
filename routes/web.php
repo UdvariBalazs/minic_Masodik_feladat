@@ -12,12 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('auth.login');
 });
 
 Route::resource('companies', 'CompaniesController');
 
 Route::resource('employees', 'EmployeesController');
 
-
-
+Auth::routes();

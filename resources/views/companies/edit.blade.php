@@ -1,6 +1,10 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('title', 'Edit company')
+
+@section('navbar')
+    @include('inc.navbar')
+@endsection
 
 @section('content')
     <h1>Edit company</h1>

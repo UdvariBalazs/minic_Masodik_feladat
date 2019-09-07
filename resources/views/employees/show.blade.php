@@ -1,6 +1,10 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('title', 'Employees')
+
+@section('navbar')
+    @include('inc.navbar')
+@endsection
 
 @section('content')
     <h1>Employees</h1>
