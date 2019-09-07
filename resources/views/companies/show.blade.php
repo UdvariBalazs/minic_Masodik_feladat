@@ -1,22 +1,22 @@
 @extends('layouts.app')
 
-@section('title', 'Companies')
+@section('title', __('Companies'))
 
 @section('navbar')
     @include('inc.navbar')
 @endsection
 
 @section('content')
-    <h1>Companies</h1>
+    <h1>{{ __('Companies') }}</h1>
     
     <div class="table">
         <table>
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Logo</th>
-                <th>Website</th>
+                <th>{{ __('ID') }}</th>
+                <th>{{ __('Name') }}</th>
+                <th>{{ __('Email') }}</th>
+                <th>{{ __('Logo') }}</th>
+                <th>{{ __('Website') }}</th>
                 <th></th>
             </tr>
         @foreach ($companies as $company)
@@ -31,8 +31,8 @@
                 </td>
                 <td>{{ $company->website }}</td>
                 <td>
-                <div class="buttons">
-                        <a href="/companies/{{ $company->id }}/edit"><button>Update</button></a>
+                    <div class="buttons">
+                        <a href="/{{ app()->getLocale() }}/companies/{{ $company->id }}/edit"><button>{{ __('Update') }}</button></a>
                     </div>
                 </td>
             </tr>
@@ -40,7 +40,7 @@
         </table>
     </div>
     <div class="buttons">
-        <a href="/companies/create"><button>Create</button></a>
+        <a href="/{{ app()->getLocale() }}/companies/create"><button>{{ __('Create') }}</button></a>
         {{ $companies->links() }}
     </div>
 @endsection

@@ -1,0 +1,31 @@
+{
+    "Email": "Email",
+    "Password": "Jelszó",
+    "Login": "Bejelentkezés",
+
+    "Companies": "Vállalatok",
+    "Employees": "Alkalmazottak",
+    "Logout": "Kijelentkezés",
+
+    "Create company": "Vállalat létrehozása",
+    "Create employee": "Alkalmazott létrehozása",
+    "not required": "nem közetelző",
+    "required": "közetelző",
+    "Logo": "Embléma",
+    "Website": "Weboldal",
+    "Send": "Küldés",
+
+    "Edit company": "Vállalat szerkesztése",
+    "Update": "Frissítés",
+    "Delete": "Törlés",
+
+    "ID": "ID",
+    "Name": "Név",
+    "Create": "Létrehozás",
+    "First name": "Keresztnév",
+    "Last name": "Vezetéknév",
+    "Phone": "Telefonszám",
+    "Company": "Vállalat",
+
+    "Edit employee": "Alkalmazott szerkesztése"
+}

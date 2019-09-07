@@ -1,40 +1,40 @@
 @extends('layouts.app')
 
-@section('title', 'Create employee')
+@section('title', __('Create employee'))
 
 @section('navbar')
     @include('inc.navbar')
 @endsection
 
 @section('content')
-    <h1>Create employee</h1>
+    <h1>{{ __('Create employee') }}</h1>
 
     <div class="form">
-        <form method="POST" action="/employees">
+        <form method="POST" action="/{{ app()->getLocale() }}/employees">
             {{ csrf_field() }}
 
             <div>
-                <input type="text" class="input {{ $errors->has('first_name') ? 'is-danger' : '' }}" name="first_name" placeholder="First name (required)" value="{{ old('first_name') }}">
+                <input type="text" class="input {{ $errors->has('first_name') ? 'is-danger' : '' }}" name="first_name" placeholder="{{ __('First name') }} ({{ __('required') }})" value="{{ old('first_name') }}">
             </div>
             <div>
-                <input type="text" class="input {{ $errors->has('last_name') ? 'is-danger' : '' }}" name="last_name" placeholder="Last name (required)" value="{{ old('last_name') }}">
+                <input type="text" class="input {{ $errors->has('last_name') ? 'is-danger' : '' }}" name="last_name" placeholder="{{ __('Last name') }} ({{ __('required') }})" value="{{ old('last_name') }}">
             </div>
             <div>
-                <input type="text" name="email" placeholder="Email (not required)" value="{{ old('email') }}">
+                <input type="text" name="email" placeholder="{{ __('Email') }} ({{ __('not required') }})" value="{{ old('email') }}">
             </div>
             <div>
-                <input type="text" name="phone" placeholder="Phone (not required)" value="{{ old('phone') }}">
+                <input type="text" name="phone" placeholder="{{ __('Phone') }} ({{ __('not required') }})" value="{{ old('phone') }}">
             </div>
             <div>
-                <label>Company (required):</label><br>
-                <select name="company" placeholder="Company (not required)">
+                <label>{{ __('Company') }} ({{ __('required') }}):</label><br>
+                <select name="company">
                 @foreach ($companies as $company)
                     <option value="{{ $company->id }}">{{ $company->name }}</option>
                 @endforeach
                 </select>
             </div>
             <div class="buttons">
-                <button type="submit">Send</button>
+                <button type="submit">{{ __('Send') }}</button>
             </div>
             
             @if ($errors->any())

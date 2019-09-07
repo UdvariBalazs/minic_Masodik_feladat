@@ -1,28 +1,18 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+        <title>@yield('title', 'Admin panel')</title>
 
-    <title>@yield('title')</title>
+        <!-- Bootstrap framework -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-    <!-- Bootstrap framework -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <!-- Styles -->
+        <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
@@ -47,7 +37,7 @@
                 right: 10px;
                 top: 18px;
             }
-
+            
             .content {
                 text-align: center;
             }
@@ -56,34 +46,37 @@
                 font-size: 84px;
             }
 
-            .nav-item {
-                padding: 10px;
-                font-size: 16px;
-                font-weight: bold;
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
             }
 
             h1 {
                 text-align: center;
-                padding-top: 30px;
+                padding-top: 50px;
                 padding-bottom: 30px;
             }
 
-            #email, #password {
-                width: 200px;
-            }
-
-            #password-label {
-                margin-left: 10px;
-            }
-
-            #password {
-                margin-left: 2px;
+            .nav-bar {
+                display: flex;
+                justify-content: center;
+                padding-top: 40px;
+                padding-bottom: 40px;
             }
 
             table {
                 font-family: arial, sans-serif;
                 border-collapse: collapse;
-                width: 90%;
+                width: 100%;
             }
 
             td, th {
@@ -97,8 +90,7 @@
             }
 
             .table {
-                display: flex;
-                justify-content: center;
+                display: inline-block;
             }
 
             .buttons {
@@ -186,14 +178,13 @@
                 border-color: red;
             }
         </style>
-</head>
-<body>
-    @yield('navbar')
-
-    <div id="app">
-        <main class="py-4">
+    </head>
+    <body>
+        <header>
+            @yield('navbar')
+        </header>
+        <div class="flex-center position-ref">
             @yield('content')
-        </main>
-    </div>
-</body>
+        </div>
+    </body>
 </html>

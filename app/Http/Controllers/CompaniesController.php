@@ -59,11 +59,13 @@ class CompaniesController extends Controller
             Company::create(request(['name', ('email'), ('website')]));
         }
 
-        return redirect('/companies');
+        return redirect(app()->getLocale() . '/companies');
     }
     
-    public function edit(Company $company)
+    public function edit($id)
     {
+        $company = Company::findOrFail($id);
+
         return view('companies.edit', compact('company'));
     }
 
@@ -85,13 +87,13 @@ class CompaniesController extends Controller
             $company->update(request(['name', ('email'), ('website')]));
         }
 
-        return redirect('/companies');
+        return redirect(app()->getLocale() . '/companies');
     }
 
     public function destroy(Company $company)
     {
         $company->delete();
 
-        return redirect('/companies');
+        return redirect(app()->getLocale() . '/companies');
     } 
 }

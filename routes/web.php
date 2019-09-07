@@ -11,12 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
+Route::get('/', function() {
+    return redirect(app()->getLocale());
+}); 
+
+Route::group([
+    'prefix' => '{locale}',
+    'where' => ['locale' => '[a-zA-Z]{2}'],
+    'middleware' => 'setlocale',
+], function () {
+
+    Route::get('/', function () {
+        return view('auth.login');
+    });
+
+    Auth::routes();
+
+    Route::resource('companies', 'CompaniesController');
+
+    Route::resource('employees', 'EmployeesController');
 });
-
-Route::resource('companies', 'CompaniesController');
-
-Route::resource('employees', 'EmployeesController');
-
-Auth::routes();

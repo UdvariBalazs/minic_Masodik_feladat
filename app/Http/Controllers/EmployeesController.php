@@ -44,11 +44,12 @@ class EmployeesController extends Controller
 
         Employee::create(request(['first_name', 'last_name', 'email', 'phone', 'company']));
 
-        return redirect('/employees');
+        return redirect(app()->getLocale() . '/employees');
     }
 
-    public function edit(Employee $employee)
+    public function edit($id)
     {
+        $employee = Employee::findOrFail($id);
         $companies = Company::all();
 
         return view('employees.edit', compact('companies', 'employee'));
@@ -65,13 +66,13 @@ class EmployeesController extends Controller
 
         $employee->update(request(['first_name', 'last_name', 'email', 'phone', 'company']));
 
-        return redirect('/employees');
+        return redirect(app()->getLocale() . '/employees');
     }
 
     public function destroy(Employee $employee)
     {
         $employee->delete();
 
-        return redirect('/employees');
+        return redirect(app()->getLocale() . '/employees');
     }
 }

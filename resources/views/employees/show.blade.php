@@ -1,23 +1,23 @@
 @extends('layouts.app')
 
-@section('title', 'Employees')
+@section('title', __('Employees'))
 
 @section('navbar')
     @include('inc.navbar')
 @endsection
 
 @section('content')
-    <h1>Employees</h1>
+    <h1>{{ __('Employees') }}</h1>
 
     <div class="table">
         <table>
             <tr>
-                <th>ID</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Company</th>
+                <th>{{__('ID') }}</th>
+                <th>{{__('First name') }}</th>
+                <th>{{__('Last name') }}</th>
+                <th>{{__('Email') }}</th>
+                <th>{{__('Phone') }}</th>
+                <th>{{__('Company') }}</th>
                 <th></th>
             </tr>
         @foreach ($employees as $employee)
@@ -32,7 +32,7 @@
                         <td>{{ $company->name }}</td>
                         <td>
                             <div class="buttons">
-                                <a href="/employees/{{ $employee->id }}/edit"><button>Update</button></a>
+                                <a href="/{{ app()->getLocale() }}/employees/{{ $employee->id }}/edit"><button>{{ __('Update') }}</button></a>
                             </div>
                         </td>
                     </tr>
@@ -42,7 +42,7 @@
         </table>
     </div>
     <div class="buttons">
-        <a href="/employees/create"><button>Create</button></a>
+        <a href="/{{ app()->getLocale() }}/employees/create"><button>{{ __('Create') }}</button></a>
         {{ $employees->links() }}
     </div>
 
