@@ -14,7 +14,7 @@ class UpdateEmployeesTable extends Migration
     public function up()
     {    
         Schema::table('employees', function (Blueprint $table) {
-            $table->unsignedBigInteger('company');
+            $table->unsignedBigInteger('company')->nullable();;
             $table->foreign('company')->references('id')->on('companies');
         });
     }

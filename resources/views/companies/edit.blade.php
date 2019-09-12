@@ -10,7 +10,7 @@
     <h1>{{ __('Edit company') }}</h1>
 
     <div class="form">
-        <form method="POST" action="{{ app()->getLocale() }}/companies/{{ $company->id }}">
+        <form method="POST" action="/{{ app()->getLocale() }}/companies/{{ $company->id }}" enctype="multipart/form-data">
             @method('PATCH')
             @csrf
             
@@ -22,7 +22,7 @@
             </div>
             <div>
                 <label>{{ __('Logo') }}:</label><br>
-                <input name="logo" type="file" class="input-file">
+                <input id="input-image" name="logo" type="file" class="input-file">
             </div>
             <div>
                 <input type="text" name="phone" value="{{ $company->website }}">

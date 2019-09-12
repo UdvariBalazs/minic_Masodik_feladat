@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Company;
 
+use App\Employee;
+
 use Validator,Redirect,Response,File;
 
 use Illuminate\Support\Facades\Input;
@@ -62,15 +64,16 @@ class CompaniesController extends Controller
         return redirect(app()->getLocale() . '/companies');
     }
     
-    public function edit($id)
+    public function edit($locale, $id)
     {
         $company = Company::findOrFail($id);
-
         return view('companies.edit', compact('company'));
     }
 
-    public function update(Company $company)
+    public function update(Request $request, $locale, $id)
     {
+        $company = Company::findOrFail($id);
+        
         if($request->hasFile('file')) {
             $file = $request->file('file');
             $timestamp = Carbon::now()->timestamp;
@@ -84,14 +87,26 @@ class CompaniesController extends Controller
                 'logo' => 'storage/app/public/logos/' . $logo_name
             ]);
         } else {
-            $company->update(request(['name', ('email'), ('website')]));
+            $company->update(request(['name', 'email', 'website']));
         }
 
         return redirect(app()->getLocale() . '/companies');
     }
 
-    public function destroy(Company $company)
+    public function destroy($locale, $id)
     {
+        $employees = Employee::all(); 
+        foreach ($employees as $employee)
+        {
+            if ($employee->company == $id) 
+            {
+                $employee->update([
+                    'company' => null
+                ]);
+            }
+        }
+
+        $company = Company::findOrFail($id);
         $company->delete();
 
         return redirect(app()->getLocale() . '/companies');

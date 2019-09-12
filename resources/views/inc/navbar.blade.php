@@ -1,13 +1,17 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
-            <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
-                <!-- Authentication Links -->
                 <li class="nav-item">
                     <a class="nav-link" href="/{{ app()->getLocale() }}/companies">{{ __('Companies') }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/{{ app()->getLocale() }}/employees">{{ __('Employees') }}</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/en/{{ substr(url()->current(), 25) }}">EN</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/hu/{{ substr(url()->current(), 25) }}">HU</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

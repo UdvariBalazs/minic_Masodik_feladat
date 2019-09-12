@@ -35,7 +35,7 @@
             <div class="notification is-danger">
                 @foreach ($errors->all() as $error)
                         {{ $error }} <br>
-                    @endforeach
+                @endforeach
             @endif
         </form>
     </div>

@@ -47,7 +47,7 @@ class EmployeesController extends Controller
         return redirect(app()->getLocale() . '/employees');
     }
 
-    public function edit($id)
+    public function edit($locale, $id)
     {
         $employee = Employee::findOrFail($id);
         $companies = Company::all();
@@ -55,8 +55,10 @@ class EmployeesController extends Controller
         return view('employees.edit', compact('companies', 'employee'));
     }
 
-    public function update(Employee $employee)
+    public function update($locale, $id)
     {
+        $employee = Employee::findOrFail($id);
+        
         request()->validate([
             'first_name' => ['required', 'max:255'],
             'last_name' => ['required', 'max:255'],
@@ -65,12 +67,13 @@ class EmployeesController extends Controller
         ]);
 
         $employee->update(request(['first_name', 'last_name', 'email', 'phone', 'company']));
-
+            
         return redirect(app()->getLocale() . '/employees');
     }
 
-    public function destroy(Employee $employee)
+    public function destroy($locale, $id)
     {
+        $employee = Employee::findOrFail($id);
         $employee->delete();
 
         return redirect(app()->getLocale() . '/employees');

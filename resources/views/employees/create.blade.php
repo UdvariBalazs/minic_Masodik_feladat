@@ -28,6 +28,7 @@
             <div>
                 <label>{{ __('Company') }} ({{ __('required') }}):</label><br>
                 <select name="company">
+                <option value=""></option>
                 @foreach ($companies as $company)
                     <option value="{{ $company->id }}">{{ $company->name }}</option>
                 @endforeach

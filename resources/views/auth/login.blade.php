@@ -2,7 +2,12 @@
 
 @section('title', 'Login')
 
+@section('navbar')
+    @include('inc.lang')
+@endsection
+
 @section('content')
+
     <h1>{{ __('Login') }}</h1>
 
     <div class="container">

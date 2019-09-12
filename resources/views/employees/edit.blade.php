@@ -10,7 +10,7 @@
     <h1>{{ __('Edit employee') }}</h1>
 
     <div class="form">
-        <form method="POST" action="{{ app()->getLocale() }}/employees/{{ $employee->id }}">
+        <form method="POST" action="/{{ app()->getLocale() }}/employees/{{ $employee->id }}" enctype="multipart/form-data">
             @method('PATCH')
             @csrf
             
