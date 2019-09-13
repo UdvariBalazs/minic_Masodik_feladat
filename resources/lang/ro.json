@@ -1,0 +1,32 @@
+{
+    "Email": "Email",
+    "Password": "Parolă",
+    "Login": "Conectează-te",
+
+    "Companies": "Companii",
+    "Employees": "Angajați",
+    "Logout": "Deconectare",
+
+    "Create company": "Creați companie",
+    "Create employee": "Creați angajat",
+    "not required": "nu este necesar",
+    "required": "necesar",
+    "Logo": "Emblemă",
+    "Website": "Website",
+    "Send": "Trimite",
+
+    "Edit company": "Editează compania",
+    "Update": "Actualizați",
+    "Delete": "Șterge",
+    "Delete image": "Ștergeți imaginea",
+
+    "ID": "ID",
+    "Name": "Nume",
+    "Create": "Creați",
+    "First name": "Prenume",
+    "Last name": "Nume",
+    "Phone": "Număr de telefon",
+    "Company": "Companie",
+
+    "Edit employee": "Editează angajat"
+}

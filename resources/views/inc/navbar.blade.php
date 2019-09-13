@@ -7,12 +7,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/{{ app()->getLocale() }}/employees">{{ __('Employees') }}</a>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link" href="/en/{{ substr(url()->current(), 25) }}">EN</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/hu/{{ substr(url()->current(), 25) }}">HU</a>
-                </li>
+                @include('inc.lang')
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>

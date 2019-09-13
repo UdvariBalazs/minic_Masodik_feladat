@@ -15,10 +15,10 @@
             @csrf
             
             <div>
-               <input type="text" name="first_name" value="{{ $employee->first_name }}">
+               <input type="text" class="input {{ $errors->has('first_name') ? 'is-danger' : '' }}" name="first_name" value="{{ $employee->first_name }}" requierd>
             </div>
             <div>
-                <input type="text" name="last_name" value="{{ $employee->last_name }}">
+                <input type="text" class="input {{ $errors->has('last_name') ? 'is-danger' : '' }}" name="last_name" value="{{ $employee->last_name }}" requierd>
             </div>
             <div>
                 <input type="text" name="email" value="{{ $employee->email }}">
@@ -52,6 +52,14 @@
             <div class="submit-button">
                 <button type="submit">{{ __('Delete') }}</button>
             </div>
+
+            @if ($errors->any())
+            <div class="notification is-danger">
+                @foreach ($errors->all() as $error)
+                    {{ $error }} <br>
+                @endforeach
+            </div>
+            @endif
         </form>
     </div>
 @endsection

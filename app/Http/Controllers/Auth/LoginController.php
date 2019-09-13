@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use Request;
+
 class LoginController extends Controller
 {
     /*
@@ -39,6 +41,6 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-        return app()->getLocale . '/companies';
+        return Request::getLocale() . '/companies';
     }
 }

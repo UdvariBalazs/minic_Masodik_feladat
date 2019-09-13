@@ -14,10 +14,10 @@
             {{ csrf_field() }}
 
             <div>
-                <input type="text" class="input {{ $errors->has('first_name') ? 'is-danger' : '' }}" name="first_name" placeholder="{{ __('First name') }} ({{ __('required') }})" value="{{ old('first_name') }}">
+                <input type="text" class="input {{ $errors->has('first_name') ? 'is-danger' : '' }}" name="first_name" placeholder="{{ __('First name') }} ({{ __('required') }})" value="{{ old('first_name') }}" requierd>
             </div>
             <div>
-                <input type="text" class="input {{ $errors->has('last_name') ? 'is-danger' : '' }}" name="last_name" placeholder="{{ __('Last name') }} ({{ __('required') }})" value="{{ old('last_name') }}">
+                <input type="text" class="input {{ $errors->has('last_name') ? 'is-danger' : '' }}" name="last_name" placeholder="{{ __('Last name') }} ({{ __('required') }})" value="{{ old('last_name') }}" requierd>
             </div>
             <div>
                 <input type="text" name="email" placeholder="{{ __('Email') }} ({{ __('not required') }})" value="{{ old('email') }}">

@@ -15,7 +15,7 @@
             @csrf
             
             <div>
-               <input type="text" name="name" value="{{ $company->name }}">
+               <input type="text" class="input {{ $errors->has('name') ? 'is-danger' : '' }}" name="name" value="{{ $company->name }}" required>
             </div>
             <div>
                 <input type="text" name="email" value="{{ $company->email }}">
@@ -40,6 +40,13 @@
             <div class="submit-button">
                 <button type="submit">{{ __('Delete') }}</button>
             </div>
+
+            @if ($errors->any())
+            <div class="notification is-danger">
+                @foreach ($errors->all() as $error)
+                        {{ $error }}
+                @endforeach
+            @endif
         </form>
     </div>
 @endsection

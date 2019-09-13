@@ -11,6 +11,6 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-    'failed'   => 'Rossz email-jelszó páros.',
-    'throttle' => 'Túl sok próbálkozás. Kérjük próbálja újra :seconds másodperc múlva.',
+    'failed'   => 'Datele de identificare nu pot fi confirmate.',
+    'throttle' => 'Prea multe încercări de intrare în cont. Poți încerca din nou peste :seconds secunde.',
 ];

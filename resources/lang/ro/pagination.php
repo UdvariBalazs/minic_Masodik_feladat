@@ -1,5 +1,4 @@
 <?php
-
 return [
     /*
     |--------------------------------------------------------------------------
@@ -11,6 +10,6 @@ return [
     | you want to customize your views to better match your application.
     |
     */
-    'previous' => '&laquo; Előző',
-    'next'     => 'Következő &raquo;',
+    'previous' => '&laquo; Înapoi',
+    'next'     => 'Înainte &raquo;',
 ];

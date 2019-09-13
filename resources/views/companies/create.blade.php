@@ -15,7 +15,7 @@
             <input type="hidden" value="{{ csrf_token() }}" name="_token">
 
             <div>
-                <input type="text" class="input {{ $errors->has('name') ? 'is-danger' : '' }}" name="name" placeholder="Name ({{ __('required') }})" value="{{ old('name') }}">
+                <input type="text" class="input {{ $errors->has('name') ? 'is-danger' : '' }}" name="name" placeholder="Name ({{ __('required') }})" value="{{ old('name') }}" required>
             </div>
             <div>
                 <input type="text" name="email" placeholder="{{ __('Email') }} ({{ __('not required') }})" value="{{ old('email') }}">
